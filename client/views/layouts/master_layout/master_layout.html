@@ -1,0 +1,35 @@
+<template name="masterLayout">
+  
+  <div class="title_div">
+    {{> Header}}
+  </div>
+  
+  
+  
+  <div class="panels_div container-fluid">
+    
+    <div class="left_panel col-lg-2">
+      {{#each menu_fields}}
+        {{#linkTo route="main_body.link" pageName=getHref class="menu_anchor"}}
+          <div class="menu_item">
+              {{this}}
+          </div>
+        {{/linkTo}}
+      {{/each}}
+      
+      <!--div class="test-div">This is my test</div-->
+    </div>
+    
+    <div class="right_panel col-lg-10">
+      {{> yield "breadcrumbs"}}
+      
+      {{> yield}}
+    </div>
+    
+  </div>
+  
+  <!--div id="footer_div">
+    {{> footer}}
+  </div-->
+
+</template>

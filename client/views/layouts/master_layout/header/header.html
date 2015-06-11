@@ -1,0 +1,38 @@
+<template name="Header">
+  <div class="title_div">
+    <a href="/home" id="go_home">Home</a>
+    <h1>Car-Screens</h1>  
+  </div>
+  
+  <div id="settings-div">
+    {{> errors}}
+    <div id="language-div">
+      {{#each language_options}}
+      <a href="">{{this}}</a>
+      {{/each}}
+      
+    </div>
+    
+    <div class="notifications-div">
+      {{> notifications}}
+    </div>
+   
+    <div id="login-div">
+      <!--button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      Launch demo modal
+      </button-->
+      
+      <a data-toggle="modal" data-target="#myModal" href="">register</a>
+      
+      {{> register}}
+      
+      {{> loginButtons}}
+
+      {{#if currentUser}}
+        {{currentUser.profile.login}}
+      {{/if}}
+    </div>
+
+    
+  </div>
+</template>

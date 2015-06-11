@@ -1,0 +1,44 @@
+<template name="advertisingStatistics">
+  
+  <table class="table-bordered table">
+    <tr class="table-header-row" style="{font-weight: bold}">
+      <td>Code</td> <td>Text</td> <td>State</td> <td>Deal Type</td> <td>Discount %</td>  <td>Date Generated</td> <td>Num Finds</td> 
+      <td>Date Claimed</td> <td>Claimed By</td> <td>Date Redeemed</td><td>Redeemed By</td>
+    </tr>
+    
+    {{#each this}}
+    <tr class={{getCodeStatus}}>
+      <td>{{_id}}</td>
+      <td>{{text}}</td>
+      <td>{{state}}</td>
+      <td>{{dealType}}</td>
+      <td>{{percentDiscount}}</td>
+      <td>{{getFormattedDate dateGenerated}}</td>
+      <td>{{#if foundBy}}{{numFinds}}{{else}}0{{/if}}</td>
+      <td>{{#if dateClaimed}}{{getFormattedDate dateClaimed}}{{else}}NOT CLAIMED{{/if}}</td>
+      <td>{{#if claimedBy}}{{getUsername claimedBy}}{{else}}NOT CLAIMED{{/if}}</td>
+      <td>{{#if dateRedeemed}}{{getFormattedDate dateRedeemed}}{{else}}NOT REDEEMED{{/if}}</td>
+      <td>{{#if redeemedBy}}{{getUsername redeemedBy}}{{else}}NOT REDEEMED{{/if}}</td>
+    </tr>
+    {{/each}}
+  </table>
+  
+  <form>
+    
+    <select class="state-dropdown">
+      {{#each getUserSelectedStates}}
+      <option>{{this}}</option>
+      {{/each}}
+    </select>
+    
+    <select class="message-dropdown">
+      {{#each getUserMessages}}
+      <option data-dealType={{dealType}} data-percentDiscount={{percentDiscount}} data-id={{id}}>{{text}}</option>
+      {{/each}}
+    </select>
+    
+    <button type="submit" class="btn" id="generate-code-button">Generate Code</button>
+    
+  </form>
+    
+</template>

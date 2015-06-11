@@ -1,0 +1,36 @@
+<template name="advertisingRates">
+  <div class="container-fluid col-lg-12" style="{text-align: left;}">
+    <div id="mapDiv" class="col-lg-4">
+      {{> map}}
+    </div>
+  
+    <input type="checkbox" id="toggle-select-all">Toggle All<button class="btn" id="save-states">Save States</button>
+    <div id="stateListDiv" class="container-fluid col-lg-8">
+      
+      {{#each getItArray}}
+      <div class="col-lg-2">
+        {{#each getStateArray this}}
+          <input type="checkbox" class="state-checkbox" {{isChecked abrev}} id={{abrev}}>{{full}}<br>
+        {{/each}}
+      </div>
+        
+      {{/each}}
+    </div>
+    
+  </div>
+
+    <div id="pricingDiv">
+      {{#if currentUser}}
+        <input class="subscribePlanButton" type="button" id="1month" value={{getButtonPriceText 1}}>
+        <input class="subscribePlanButton" type="button" id="3month" value={{getButtonPriceText 3}}>
+        <input class="subscribePlanButton" type="button" id="6month" value={{getButtonPriceText 6}}>
+        <input class="subscribePlanButton" type="button" id="12month" value={{getButtonPriceText 12}}>
+        <button id="proceedToCheckoutButton">Proceed to Checkout</button>
+      {{else}}
+        <p>LOGIN TO SELECT STATES AND VIEW RATES</p>
+      {{/if}}
+
+    </div>
+  
+  
+</template>

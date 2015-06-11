@@ -1,0 +1,95 @@
+<template name="redeemCode">
+  
+  
+  {{#contentFor "loadingMessage"}}
+  Your List of Redeemed and Claimed Codes is Loading!!!!
+  {{/contentFor}}
+
+  {{#if currentUser}}
+    {{#if checkingForCode}}
+      {{> spinner}}
+    {{else}}
+      <form class="main form">
+        <div class="control-group {{errorClass}}">
+          <label class="control-label">Enter Code</label>
+          <div class="controls">
+              <input type="text"/>
+              <span class="help-inline">{{errorMessage}}</span>
+          </div>
+        </div>
+          
+        <button type="submit" class="btn" id="find-code-btn">Find Code</button>
+      </form>
+    {{/if}}
+  
+  
+  
+  <div role="tabpanel">
+    <a href="{{pathFor 'redeem_codes' codeType='available' numAvailablePosts=10 numFoundPosts=10 numClaimedPosts=10}}">Click me!!</a>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <!--li role="presentation" class="active"><a href="#available-codes-feed" aria-controls="available-codes-feed" role="tab" data-toggle="tab">Available</a></li-->
+      <li role="presentation" class="available-tab"><a href="#available-codes-feed" aria-controls="available-codes-feed" role="tab" data-codeType="available" data-toggle="tab">Available</a></li>
+      <li role="presentation" class="found-tab"><a href="#found-codes-feed" aria-controls="found-codes-feed" role="tab" data-codeType="found" data-toggle="tab">Found</a></li>
+      <li role="presentation" class="claimed-tab"><a href="#claimed-codes-feed" aria-controls="claimed-codes-feed" role="tab" data-codeType="claimed" data-toggle="tab">Claimed</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content all-feeds-div container">
+      <div role="tabpanel" class="tab-pane active col-lg-12 feed {{../_id}}" id="available-codes-feed">
+          <!--div id="generated-code-feed-div" class="col-lg-4 feed {{../_id}}"-->
+  
+        <h1>Available Codes</h1>
+        {{#each codes.availableCodes}}
+         {{> feedItem}}
+        {{/each}}<br>
+        <a id="load-available-codes" href={{loadAvailableCodesPath}}>Load More Available Codes</a>
+        <!--/div-->
+      
+      </div>
+      
+      <div role="tabpanel" class="tab-pane col-lg-12 feed {{../_id}}" id="found-codes-feed">
+          <!--div id="found-code-feed-div" class="col-lg-4 feed {{../_id}}"-->
+            <h1>Found Codes</h1>
+            {{#each codes.foundCodes}}
+             {{> feedItem}}
+            {{/each}}<br>
+            <a id="load-found-codes" href={{loadFoundCodesPath}}>Load More Found Codes</a>
+          <!--/div-->
+      
+      </div>
+      <div role="tabpanel" class="tab-pane col-lg-12 feed {{../_id}}" id="claimed-codes-feed">
+      
+        <!--div id="claimed-code-feed-div" class="col-lg-4 feed {{../_id}}"-->
+        <h1>Claimed Codes</h1>
+        {{#each codes.claimedCodes}}
+         {{> feedItem}}
+        {{/each}}<br>
+        <a id="load-claimed-codes" href={{loadClaimedCodesPath}}>Load More Claimed Codes</a>
+        <!--/div-->
+      
+      </div>
+      
+    </div>
+
+  </div>
+  
+
+  {{#if nextPage}}
+  
+  {{else}}
+    
+    {{#unless ready}}
+      {{> spinner}}
+    {{/unless}}
+    
+  {{/if}}
+  
+  {{else}}
+  
+  Log in to view feed!!!!
+  
+  {{/if}}
+      
+  
+</template>

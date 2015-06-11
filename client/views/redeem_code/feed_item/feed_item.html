@@ -1,0 +1,29 @@
+<template name="feedItem">
+
+  <div class="feed-item-div" id={{_id}}>
+      <!--img src={{getAdvertImage}} height="200" width="200"/-->
+      <img class="show-image" src={{getAdvertImage}} alt="your image" height="100" width="100"/>
+      <table class="feed-item-table table table-bordered">
+        
+        <tr><td>Code:</td><td>{{_id}}</td></tr>
+        <tr><td>DealType:</td> <td>{{dealType}}</td></tr>
+        <tr><td>Issuer:</td> <td>{{getUsername createdBy}}</td></tr>
+        <tr><td>Percent Discount:</td> <td>{{percentDiscount}}</td></tr>
+        {{#if claimedBy}}
+          <tr class="time-remaining"><td>Time Remaining:</td> <td>{{redeemTimeRemaining}}</td></tr>
+        {{/if}}
+        
+      </table>
+    
+        {{#if claimedBy}}
+          <button class="redeem-button" {{isButtonDisabled}}>Simulate Redeem</button>
+        {{else}}
+          {{#if foundBy}}
+            <button class="claim-button" {{isButtonDisabled}}>Simulate Claim</button>
+          {{/if}}
+        {{/if}}
+    
+    <a href="{{pathFor 'code_reviews'}}">Reviews</a>
+  </div>
+
+</template>

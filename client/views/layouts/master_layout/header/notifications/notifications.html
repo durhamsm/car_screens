@@ -1,0 +1,16 @@
+<template name="notifications">
+
+  <div class="notifications-unopened">
+    <a href="">{{getNotifications.count}} Notifications</a>
+  </div>
+  
+  {{#if notificationsOpen}}
+    <div class="notifications-opened">
+      {{#each getNotifications}}
+        <a href="">{{> notification}}</a>
+      {{/each}}
+    </div>
+  {{/if}}
+  
+
+</template>

@@ -1,0 +1,28 @@
+/*****************************************************************************/
+/* Header: Style */
+/*****************************************************************************/
+
+#settings-div {
+  border-top: solid #140eb0;
+  border-bottom: solid #140eb0;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.title_div>h1 {
+  text-align: center;
+  font-size: 100px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+
+#login-div {
+  display: inline-block;
+  float: right;
+}
+
+#language-div {
+  display: inline-block;
+  float: left;
+}

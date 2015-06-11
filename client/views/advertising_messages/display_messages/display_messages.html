@@ -1,0 +1,65 @@
+<template name="displayMessages">
+  <div id="displayMessages">
+        <table class="table table-bordered">
+          <tr>
+            <td><strong>Message</strong></td>
+            <td><strong>Deal Type</strong></td>
+            <td><strong>% Discount</strong></td>
+            <td><strong>Selected States</strong></td>
+            <td><strong>Sroll Mode</strong></td>
+            <td><strong>Deleted</strong></td>
+            
+          </tr>
+
+          {{#each messages}}
+          <tr class="message-display-tr" id={{id}}>
+            
+            
+            <td>
+              {{#if onPage "scroll_modes"}}
+              <input name="scroll-mode-edit" type="checkBox" value="Edit Scroll Mode">
+              {{/if}}
+              {{text}}
+            </td>
+            <td>{{dealType}}</td>
+            <td>{{percentDiscount}}</td>
+            <td>
+              <select class="state_dropdown" multiple>
+                {{#if getUserSelectedStates ../id}}
+                {{#each getUserSelectedStates ../id}}
+                  {{#if checkIfSaved this ../id ../../messages}}
+                    <option selected>{{this}}</option>
+                  {{else}}
+                    <option>{{this}}</option>
+                  {{/if}}
+                {{/each}}
+                {{else}}
+                <option>GO PICK SOME STATES!!</option>
+                {{/if}}
+              </select>
+            </td>
+            <td>
+              <select class="scrollmode-dropdown">
+                {{#each getScrollModes}}
+                <option selected>{{this}}</option>
+                {{/each}}
+                <option class="create-scroll-mode">Create New</option>
+              </select>
+            </td>
+            
+            <td>
+            {{#if advertImage}}
+              <img class="show-image" src={{advertImage}} alt="your image" height="100" width="100"/>
+            {{/if}}
+            <input type="file" class="select-file">
+            </td>
+            
+            <td><button class="delete-message">Delete</button></td>
+          </tr>
+          {{/each}}
+
+          
+        </table>
+
+      </div>
+</template>

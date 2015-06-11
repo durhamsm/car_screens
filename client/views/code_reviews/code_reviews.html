@@ -1,0 +1,86 @@
+<template name="codeReviews">
+  <div id="submit-review-div" class="container-fluid">
+    <div class="col-lg-6">
+      <form>
+
+        <div class="form-group container-fluid">
+          <div class="col-lg-6">
+            <label class="">Comments:</label>
+            <textarea class="form-control" id="review-text-input" rows="6">Type comments here</textarea><br>
+          </div>
+        </div>
+
+        <div class="form-group container-fluid">
+          <label>Rating:</label>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" value="rating5" checked>
+              5 Stars
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" value="rating4">
+              4 Stars
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" value="rating3">
+              3 Stars
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" value="rating2">
+              2 Stars
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" value="rating1">
+              1 Star
+            </label>
+          </div>
+
+        </div>
+
+          <button type="submit" class="btn btn-default btn-lg">Submit</button>
+        <p id="same-author-warning">You have already entered a review for this code</p>
+      </form>
+    </div>
+  </div>
+  
+  <h1>Reviews for Code: {{code}}</h1>
+  
+  <a href="{{pathFor 'code_reviews_best' _id=code}}">Best</a>
+  <a href="{{pathFor 'code_reviews' _id=code}}">Date</a>
+  
+  <div class="all-reviews">
+    {{#each getReviews}}
+    <div class="review-div container-fluid">
+      <div class="review-div1 col-lg-6" id={{_id}}>
+      
+        <i class="exit glyphicon glyphicon-remove"></i>
+        <a class="upvote {{disableVote}}"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+        {{getPlural upVotes ''}}
+        <a class="downvote {{disableVote}}"><i class="glyphicon glyphicon-thumbs-down"></i></a>
+        {{getPlural downVotes ''}}
+
+        <p>
+          <strong>Rating: </strong>
+            {{#each getStarsArray rating}}
+              <i class="glyphicon glyphicon-{{this}}"></i>
+            {{/each}}
+        </p>
+
+        <p><strong>Author: </strong>{{getUsername author}}</p>
+        <p><strong>Date: </strong>{{getFormattedDate date}}</p>
+        <p><strong>Review: </strong><br><em>"{{review}}"</em></p>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  
+  
+</template>

@@ -1,0 +1,22 @@
+/*****************************************************************************/
+/* Notifications: Style */
+/*****************************************************************************/
+
+.notifications-div {
+  display: inline-block;
+  float: right;
+  margin-right: 100px;
+}
+
+.notifications-unopened {
+  display: block;
+}
+
+.notifications-opened {
+  display: block;
+  z-index: 5;
+  position: absolute;
+  opacity: 100%;
+  background-color: white;
+  border: solid blue 1px;
+}

@@ -1,0 +1,25 @@
+<template name="createMessage">
+
+  <form id="createMessageForm" class="form-inline">
+    <legend>Create Messages</legend>
+    <label>Message Text</label>
+    <input id="messageText" type="text" placeholder="Enter new message...">
+        
+    <select id="dealType">
+      {{#each getDealTypes}}
+      <option>{{this}}</option>
+      {{/each}}
+    </select>
+        
+    <div id="discountDiv" hidden>
+      <label class="discountEnter">% Discount</label>
+      <input class="discountEnter" id="discountInput">
+    </div>
+        
+    <button type="submit" class="btn">Save</button>
+        
+  </form>
+  
+  
+  
+</template>

@@ -1,0 +1,25 @@
+/*****************************************************************************/
+/* Map: Style */
+/*****************************************************************************/
+
+
+#stateListDiv {
+  display: inline-block;
+  text-align: left;
+}
+
+#mapDiv {
+
+  display: inline-block;
+  overflow: hidden;
+}
+
+.subscribePlanButton {
+  transition: top 0.5s;
+  position: relative;
+}
+
+.selected-button {
+  top: -10px;
+  color: red;
+}

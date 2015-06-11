@@ -1,0 +1,191 @@
+/*****************************************************************************/
+/* MasterLayout: Style */
+/*****************************************************************************/
+
+/* CSS declarations go here */
+
+.menu_item {
+  border: solid #140eb0;
+  border-radius: 10px;
+}
+
+.left_panel {
+  float: left;
+  width: 200px
+  display: inline-block;
+  padding-left: 0px;
+  margin-left: 0px;
+  border-top: solid gray 2px;
+  padding-top: 15px;
+  
+  border-bottom: solid gray 2px;
+  padding-bottom: 15px;
+}
+
+.right_panel {
+  text-align: center;
+  overflow: hidden;
+  display: inline-block;
+  background-color: #D1C5C5;
+  min-height: 600px;
+  padding: 0px;
+}
+
+.panels_div {
+  
+}
+
+
+#discountDiv {
+  display: inline-block;
+}
+
+
+.paragraphs-scroll-modes {
+  display: inline-block;
+}
+
+.time-remaining-expired {
+  color: red;
+}
+
+.feed {
+  border: solid red 2px;
+  /*vertical-align: top;*/
+  display: inline-block;
+  padding: 0px;
+
+}
+
+.feed-item-div {
+  /*margin: 0 auto;
+  border: solid blue 5px;*/
+  opacity: 1;
+  background-color: white;
+  margin: 10px 5px 10px 5px;
+  border-top: solid gray 2px;
+  border-bottom: solid gray 2px;
+}
+
+.feed-item-div a {
+  display: block;
+}
+
+.menu_item:hover {
+  background: blue;
+  color: white;
+}
+
+/*
+.test-div:hover {
+  width: 100px;
+  height: 100px;
+  background: blue;
+}
+*/
+
+.feed-item-table td {
+  border: solid gray 2px;
+}
+
+.feed-item-table tr > td:first-child {
+  font-weight: bold;
+}
+
+.feed-item-table {
+  text-align: left;
+}
+
+.code-status-expired {
+  color: red;
+}
+
+.code-status-redeemed {
+  color: green;
+}
+
+.code-status-claimed {
+  color: yellow;
+}
+
+.code-status-generated {
+  
+}
+
+.rating-radioboxes-div {
+  text-align: left;
+}
+
+.text-area-div {
+  text-align: left;
+}
+
+
+.review-div {
+  text-align: left;
+  border: blue solid 4px;
+  border-radius: 5px;
+  margin: 10px;
+  opacity: 1;
+  background-color: white;
+}
+
+#save-states {
+  margin-left: 10px;
+}
+
+#submit-review-div {
+  border: blue solid 4px;
+}
+
+#same-author-warning {
+  color: red;
+  opacity: 0;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@-moz-keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@-o-keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.alert {
+  animation: fadeOut 2700ms ease-in 0s 1 forwards;
+}
+
+.votable {
+  color: blue;
+}
+
+.disabled {
+  color: red;
+}
+
+a.disabled:hover {
+  color: red;
+}
+
+a.disabled:visited {
+  color: red;
+}
+
